@@ -1,0 +1,55 @@
+﻿@model agency.Models.Employer
+@{
+    ViewData["Title"] = "Оплатить услуги";
+}
+
+
+<h1>Зарегестрироваться</h1>
+
+<hr />
+
+<div>
+    <p>@Model.Name</p>
+    <p>@Model.Email</p>
+    <p>@Model.accessTime</p>
+    <p>@Model.companyName</p>
+    <p>@Model.Description</p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+       
+            <div class="form-group">
+                <label>Введите номер карты</label>
+                <input/>
+            </div>
+            <div class="form-group">
+                <label>Введите код cvv</label>
+                <input/>
+            </div>
+
+        <form method="post" asp-controller="Home" asp-action="payDay2">
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
+                <input type="submit" value="Оплатить один день" class="btn btn-primary" />
+            </div>
+        </form>
+        <form method="post" asp-controller="Home" asp-action="payWeek2">
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
+                <input type="submit" value="Оплатить одну неделю" class="btn btn-primary" />
+            </div>
+        </form>
+        <form method="post" asp-controller="Home" asp-action="payMounth2">
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" value="@Model.Id" />
+                <input type="submit" value="Оплатить один месяц" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<div><a href="Index.cshtml"></a></div>

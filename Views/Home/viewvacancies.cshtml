@@ -1,0 +1,27 @@
+﻿@model VacList
+@{
+    ViewData["Title"] = "Мои вакансии";
+}
+
+
+<h1>Мои вакансии</h1>
+
+<p> @Model.companyId</p>
+<table border="1" cellspacing="10">
+    <tr><th>Название вакансии</th><th>Необходимый опыт</th><th>Описание</th><th>Необходимый возраст</th><th>Зарплата</th></tr>
+    @foreach (Vacancy item in Model.list)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.requiredExpirience</td>
+            <td>@item.Description</td>
+            <td>@item.requiredAge</td>
+            <td>@item.salary</td>
+        </tr>
+       
+    }
+</table>
+<form method="post" asp-controller="Home" asp-action="backHome1">
+    <p><button type="submit">Назад</button></p>
+    <input type="hidden" asp-for="companyId" value="@Model.companyId" />
+</form>

@@ -1,0 +1,19 @@
+﻿@model agency.Models.Employee
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+Время пользования - @Model.accessTime ч.
+ID - @Model.Id
+<div>
+    <form method="post" asp-controller="Home" asp-action="pay"><p><button type="submit">Оплатить услуги</button></p>
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+    </form>
+    <form method="post" asp-controller="Home" asp-action="resume"><p><button type="submit">Заполнить/изменить резюме</button></p>
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+    </form>
+    <form method="post" asp-controller="Home" asp-action="viewvacancies"><p><button type="submit">Посмотреть вакансии</button></p>
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+    </form>
+    <form method="post" asp-controller="Home" asp-action="viewreqvacancies"><p><button type="submit">Посмотреть подходящие вакансии</button></p></form>
+</div>
